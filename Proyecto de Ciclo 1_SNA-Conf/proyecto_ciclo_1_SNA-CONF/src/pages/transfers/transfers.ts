@@ -67,35 +67,36 @@ export class TransfersPage {
     }).catch(err => {
       alert(err);
     })
-    this.changeStatusColor();
+    // this.changeStatusColor();
   }
 
   private view(index) {
     this.navCtrl.push(TransferViewPage, {
-      id: this.transfers[index].id
+      id: this.transfers[index].id,
+      state:this.stateAux
     })
   }
 
-  private changeStatusColor() {
-    switch (this.stateAux) {
-      case 'Hecho':
-        this.statusColor = "secondary";
-        break;
-      case 'Borrador':
-        this.statusColor = "dark";
-        break;
-      case 'En Espera':
-        this.statusColor = "yellow";
-        break;
-      case 'Disponible Parcialmente':
-        this.statusColor = "purple";
-        break;
-      case 'Disponible':
-        this.statusColor = "primary";
-        break;
-      case 'Cancelado':
-        this.statusColor = "danger";
-        break;
-    }
-  }
+  // private changeStatusColor() {
+  //   switch (this.stateAux) {
+  //     case 'Hecho':
+  //       this.statusColor = "secondary";
+  //       break;
+  //     case 'Borrador':
+  //       this.statusColor = "dark";
+  //       break;
+  //     case 'En Espera':
+  //       this.statusColor = "yellow";
+  //       break;
+  //     case 'Disponible Parcialmente':
+  //       this.statusColor = "purple";
+  //       break;
+  //     case 'Disponible':
+  //       this.statusColor = "primary";
+  //       break;
+  //     case 'Cancelado':
+  //       this.statusColor = "danger";
+  //       break;
+  //   }
+  // }
 }

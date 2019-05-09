@@ -229,6 +229,16 @@ export class OdooJsonRpc {
     return this.getRecord('stock.picking',dom,[],0,0,"");
   }
 
+  public getSingleTransferDetails(id):Promise <any>{
+    let dom=[['id','=',id]]
+    return this.getRecord('stock.picking',dom,[],0,0,"");
+  }
+
+  public getProdsFromTransfer(id):Promise <any>{
+    let dom=[['picking_id','=',id]]
+    return this.getRecord('stock.move',dom,[],0,0,"");
+  }
+
 
   /** --------------------Otros metodos utiles ------------------*/
 
