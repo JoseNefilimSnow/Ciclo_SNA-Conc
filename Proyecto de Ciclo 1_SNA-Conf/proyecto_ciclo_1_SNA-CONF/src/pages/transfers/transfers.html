@@ -1,0 +1,20 @@
+<!--
+  Generated template for the TransfersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>Pedidos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngFor="let items of transfers;let i=index">
+    <ion-item (click)="view(i)">
+      <h2>Nombre: {{items.name}}</h2>
+      <h3>Estado: {{items.state}}</h3>
+    </ion-item>
+  </ion-list>
+</ion-content>

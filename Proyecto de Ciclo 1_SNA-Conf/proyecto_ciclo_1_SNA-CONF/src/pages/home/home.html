@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-row>
+      <button ion-button icon-only (click)="logOut()" color="dark">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+      <ion-title align="center">
+        Página Principal
+      </ion-title>
+    </ion-row>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <button ion-button block large color="secondary" (click)="toServeTransfers()">
+      Ver Pedidos
+    </button>
+  </ion-row>
+  <ion-row>
+    <button ion-button block large color="orange">
+      Enviar Pedidos (No implementado)
+    </button>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,40 @@
+<!--
+  Generated template for the LogInPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Inicio de Sesión</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div text-center>
+    <img src="assets/imgs/valper.jpg" alt="No Image" />
+  </div>
+  <ion-card>
+    <div>
+      <form (ngSubmit)="login()" #registerForm="ngForm">
+        <div class="spacer" style="height: 10px;"></div>
+
+        <ion-item class="border-box">
+          <ion-input type="email" placeholder="Usuario(Email)" [(ngModel)]="email" name="email" required></ion-input>
+        </ion-item>
+        <div class="spacer" style="height: 10px;"></div>
+
+        <ion-item class="border-box">
+          <ion-input type="password" [(ngModel)]="password" name="pass" placeholder="Contraseña" required></ion-input>
+        </ion-item>
+        <div class="spacer" style="height: 10px;"></div>
+        <button ion-button block round outline type="submit">
+          Iniciar Sesión
+        </button>
+      </form>
+      <button ion-button block round outline color="danger" (click)="wallJumper()">
+          Dev: Inicio de Sesion
+        </button>
+    </div>
+  </ion-card>
+</ion-content>
