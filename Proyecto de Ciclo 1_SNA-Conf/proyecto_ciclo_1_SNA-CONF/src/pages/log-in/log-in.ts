@@ -26,7 +26,7 @@ import { HomePage } from "../home/home";
   templateUrl: 'log-in.html',
 })
 export class LogInPage {
-  public odooUrl = "http://172.18.8.25:8069";
+  public odooUrl = "http://192.168.202.94:8069";
   private selectedDatabase = "ValperApp";
   private email; 
   private password;

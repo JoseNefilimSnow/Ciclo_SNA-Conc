@@ -10,6 +10,7 @@
 </ion-header>
 
 <ion-content padding>
+
   <ion-list *ngFor="let items of detailList">
     <ion-item>
       <h2>Nombre: {{items.name}}</h2>
@@ -20,15 +21,13 @@
     <ion-item>
       <h2>Cliente: {{items.client}}</h2>
     </ion-item>
-    <ion-list *ngFor="let prods of productList;let i=index">
-      <ion-item>
-        <h2>Nombre del Producto: {{prods.name}}</h2>
-      </ion-item>
-      <ion-item>
-          <h2>Cantidad de Producto:</h2>
-          <h3>Pedida: {{prods.qty_ord}}</h3>
-          <h3>Enviada: {{prods.qty_del}}</h3>
+    <ion-item>
+      <ion-list *ngFor="let prods of productList; let i = index">
+        <ion-item>
+          <h2>Nombre del Producto:</h2>
+          <h2>{{prods.name}}</h2>
         </ion-item>
-    </ion-list>
+      </ion-list>
+    </ion-item>
   </ion-list>
 </ion-content>

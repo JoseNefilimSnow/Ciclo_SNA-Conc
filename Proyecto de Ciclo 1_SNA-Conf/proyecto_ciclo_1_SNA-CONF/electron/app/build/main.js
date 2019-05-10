@@ -1,98 +1,14 @@
 webpackJsonp([2],{
 
-/***/ 126:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Utils; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(37);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var Utils = /** @class */ (function () {
-    function Utils(alrtCtrl, loadingCtrl, toastCtrl, actionSheetCtrl) {
-        this.alrtCtrl = alrtCtrl;
-        this.loadingCtrl = loadingCtrl;
-        this.toastCtrl = toastCtrl;
-        this.actionSheetCtrl = actionSheetCtrl;
-    }
-    Utils.prototype.presentAlert = function (title, message, buttons, subtitle, enableBackdropDismiss, inputs) {
-        var alrt = this.alrtCtrl.create({
-            title: title,
-            subTitle: subtitle,
-            message: message,
-            buttons: buttons,
-            enableBackdropDismiss: enableBackdropDismiss,
-            inputs: inputs
-        });
-        alrt.present();
-    };
-    Utils.prototype.presentToast = function (message, duration, dissmissOnPageChange, position, showCloseButton, closeButtonText) {
-        var toast = this.toastCtrl.create({
-            message: message,
-            position: position,
-            dismissOnPageChange: dissmissOnPageChange,
-            duration: duration,
-            showCloseButton: showCloseButton,
-            closeButtonText: closeButtonText
-        });
-        toast.present();
-    };
-    Utils.prototype.presentLoading = function (content, duration, dissmissOnPageChange, enableBackDropDismiss, showBackDrop, spinner) {
-        this.loading = this.loadingCtrl.create({
-            content: content,
-            dismissOnPageChange: dissmissOnPageChange,
-            duration: duration,
-            enableBackdropDismiss: enableBackDropDismiss,
-            showBackdrop: showBackDrop,
-            spinner: spinner
-        });
-        this.loading.present();
-    };
-    Utils.prototype.dismissLoading = function () {
-        this.loading.dismiss();
-    };
-    Utils.prototype.presentActionSheet = function (buttons, title, subtitle, enableBackdropDismiss) {
-        var actionCtrl = this.actionSheetCtrl.create({
-            buttons: buttons,
-            subTitle: subtitle,
-            title: title,
-            enableBackdropDismiss: enableBackdropDismiss
-        });
-        actionCtrl.present();
-    };
-    Utils = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]])
-    ], Utils);
-    return Utils;
-}());
-
-//# sourceMappingURL=utils.js.map
-
-/***/ }),
-
 /***/ 149:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogInPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_odoojsonrpc__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_odoojsonrpc__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_utils__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_utils__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(346);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -121,7 +37,7 @@ var LogInPage = /** @class */ (function () {
         this.odooRpc = odooRpc;
         this.utils = utils;
         this.menu = menu;
-        this.odooUrl = "http://172.18.8.25:8069";
+        this.odooUrl = "http://192.168.202.94:8069";
         this.selectedDatabase = "ValperApp";
     }
     LogInPage.prototype.reinit = function () {
@@ -196,7 +112,7 @@ var LogInPage = /** @class */ (function () {
     };
     LogInPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
-            selector: 'page-log-in',template:/*ion-inline-start:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\log-in\log-in.html"*/'<!--\n  Generated template for the LogInPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Inicio de Sesión</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div text-center>\n    <img src="assets/imgs/valper.jpg" alt="No Image" />\n  </div>\n  <ion-card>\n    <div>\n      <form (ngSubmit)="login()" #registerForm="ngForm">\n        <div class="spacer" style="height: 10px;"></div>\n\n        <ion-item class="border-box">\n          <ion-input type="email" placeholder="Usuario(Email)" [(ngModel)]="email" name="email" required></ion-input>\n        </ion-item>\n        <div class="spacer" style="height: 10px;"></div>\n\n        <ion-item class="border-box">\n          <ion-input type="password" [(ngModel)]="password" name="pass" placeholder="Contraseña" required></ion-input>\n        </ion-item>\n        <div class="spacer" style="height: 10px;"></div>\n        <button ion-button block round outline type="submit">\n          Iniciar Sesión\n        </button>\n      </form>\n      <button ion-button block round outline color="danger" (click)="wallJumper()">\n          Dev: Inicio de Sesion\n        </button>\n    </div>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\log-in\log-in.html"*/,
+            selector: 'page-log-in',template:/*ion-inline-start:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\log-in\log-in.html"*/'<!--\n  Generated template for the LogInPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Inicio de Sesión</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div text-center>\n    <img src="assets/imgs/valper.jpg" alt="No Image" />\n  </div>\n  <ion-card>\n    <div>\n      <form (ngSubmit)="login()" #registerForm="ngForm">\n        <div class="spacer" style="height: 10px;"></div>\n\n        <ion-item class="border-box">\n          <ion-input type="email" placeholder="Usuario(Email)" [(ngModel)]="email" name="email" required></ion-input>\n        </ion-item>\n        <div class="spacer" style="height: 10px;"></div>\n\n        <ion-item class="border-box">\n          <ion-input type="password" [(ngModel)]="password" name="pass" placeholder="Contraseña" required></ion-input>\n        </ion-item>\n        <div class="spacer" style="height: 10px;"></div>\n        <button ion-button block round outline type="submit">\n          Iniciar Sesión\n        </button>\n      </form>\n      <button ion-button block round outline color="danger" (click)="wallJumper()">\n        Dev: Inicio de Sesion\n      </button>\n    </div>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\log-in\log-in.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */],
@@ -215,11 +131,90 @@ var LogInPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TransferViewPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_odoojsonrpc__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_utils__ = __webpack_require__(82);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the TransferViewPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var TransferViewPage = /** @class */ (function () {
+    function TransferViewPage(navCtrl, navParams, odooRpc, utils) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.odooRpc = odooRpc;
+        this.utils = utils;
+        this.productList = [];
+        this.detailList = [];
+        this.transf_id = this.navParams.get("id");
+        this.state = this.navParams.get("state");
+        this.ionViewDidLoad();
+    }
+    TransferViewPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.odooRpc.getSingleTransferDetails(this.transf_id).then(function (res) {
+            _this.detailList = [{
+                    name: JSON.parse(res._body)["result"].records[0].name,
+                    client: JSON.parse(res._body)["result"].records[0].partner_id[1],
+                    state: _this.state
+                }];
+        }).catch(function (err) {
+            alert(err);
+        });
+        this.odooRpc.getProdsFromTransfer(this.transf_id).then(function (res) {
+            for (var i = 0; i < JSON.parse(res._body)["result"].records.length; i++) {
+                console.log(JSON.parse(res._body)["result"].records[i].ordered_qty);
+                console.log(JSON.parse(res._body)["result"].records[i].qty_done);
+                var aux = JSON.parse(res._body)["result"].records[i].ordered_qty - JSON.parse(res._body)["result"].records[i].qty_done;
+                _this.productList[i] = {
+                    id: JSON.parse(res._body)["result"].records[i].product_id[0],
+                    name: JSON.parse(res._body)["result"].records[i].product_id[1],
+                    qty_del: aux
+                };
+            }
+        }).catch(function (err) {
+            alert(err);
+        });
+    };
+    TransferViewPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'page-transfer-view',template:/*ion-inline-start:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\transfer-view\transfer-view.html"*/'<!--\n  Generated template for the TransferViewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <ion-list *ngFor="let items of detailList">\n    <ion-item>\n      <h2>Nombre: {{items.name}}</h2>\n    </ion-item>\n    <ion-item>\n      <h2>Estado: {{items.state}}</h2>\n    </ion-item>\n    <ion-item>\n      <h2>Cliente: {{items.client}}</h2>\n    </ion-item>\n    <ion-item>\n      <ion-list *ngFor="let prods of productList; let i = index">\n        <ion-item>\n          <h2>Nombre del Producto:</h2>\n          <h2>{{prods.name}}</h2>\n        </ion-item>\n      </ion-list>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\transfer-view\transfer-view.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__services_odoojsonrpc__["a" /* OdooJsonRpc */], __WEBPACK_IMPORTED_MODULE_3__services_utils__["a" /* Utils */]])
+    ], TransferViewPage);
+    return TransferViewPage;
+}());
+
+//# sourceMappingURL=transfer-view.js.map
+
+/***/ }),
+
+/***/ 151:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TransfersPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_odoojsonrpc__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__transfer_view_transfer_view__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_odoojsonrpc__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__transfer_view_transfer_view__ = __webpack_require__(150);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -278,34 +273,13 @@ var TransfersPage = /** @class */ (function () {
         }).catch(function (err) {
             alert(err);
         });
-        this.changeStatusColor();
+        // this.changeStatusColor();
     }
     TransfersPage.prototype.view = function (index) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__transfer_view_transfer_view__["a" /* TransferViewPage */], {
-            id: this.transfers[index].id
+            id: this.transfers[index].id,
+            state: this.stateAux
         });
-    };
-    TransfersPage.prototype.changeStatusColor = function () {
-        switch (this.stateAux) {
-            case 'Hecho':
-                this.statusColor = "secondary";
-                break;
-            case 'Borrador':
-                this.statusColor = "dark";
-                break;
-            case 'En Espera':
-                this.statusColor = "yellow";
-                break;
-            case 'Disponible Parcialmente':
-                this.statusColor = "purple";
-                break;
-            case 'Disponible':
-                this.statusColor = "primary";
-                break;
-            case 'Cancelado':
-                this.statusColor = "danger";
-                break;
-        }
     };
     TransfersPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -317,51 +291,6 @@ var TransfersPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=transfers.js.map
-
-/***/ }),
-
-/***/ 151:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TransferViewPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(37);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the TransferViewPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var TransferViewPage = /** @class */ (function () {
-    function TransferViewPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    TransferViewPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad TransferViewPage');
-    };
-    TransferViewPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-transfer-view',template:/*ion-inline-start:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\transfer-view\transfer-view.html"*/'<!--\n  Generated template for the TransferViewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title></ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\transfer-view\transfer-view.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], TransferViewPage);
-    return TransferViewPage;
-}());
-
-//# sourceMappingURL=transfer-view.js.map
 
 /***/ }),
 
@@ -387,11 +316,11 @@ webpackEmptyAsyncContext.id = 162;
 
 var map = {
 	"../pages/transfer-view/transfer-view.module": [
-		678,
+		677,
 		1
 	],
 	"../pages/transfers/transfers.module": [
-		677,
+		678,
 		0
 	]
 };
@@ -418,7 +347,7 @@ module.exports = webpackAsyncContext;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__transfers_transfers__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__transfers_transfers__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__log_in_log_in__ = __webpack_require__(149);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -472,7 +401,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar color="dark">\n    <ion-row>\n      <button ion-button icon-only (click)="logOut()" color="dark">\n        <ion-icon name="log-out"></ion-icon>\n      </button>\n      <ion-title align="center">\n        Página Principal\n      </ion-title>\n    </ion-row>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-row>\n    <button ion-button block large color="secondary" (click)="toServeTransfers()">\n      Ver Pedidos\n    </button>\n  </ion-row>\n  <ion-row>\n    <button ion-button block large color="orange">\n      Enviar Pedidos (No implementado)\n    </button>\n  </ion-row>\n</ion-content>\n'/*ion-inline-end:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar color="dark">\n    <ion-row>\n      <button ion-button icon-only (click)="logOut()" color="dark">\n        <ion-icon name="log-out"></ion-icon>\n      </button>\n      <ion-title align="center">\n        Página Principal\n      </ion-title>\n    </ion-row>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-row>\n    <button ion-button block large color="secondary" (click)="toServeTransfers()">\n      Ver Pedidos\n    </button>\n  </ion-row>\n  <ion-row>\n    <button ion-button block color="orange">\n      Enviar Pedidos (No implementado)\n    </button>\n  </ion-row>\n</ion-content>\n'/*ion-inline-end:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]])
     ], HomePage);
@@ -510,10 +439,10 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(345);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(676);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_transfers_transfers__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_odoojsonrpc__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_transfers_transfers__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_odoojsonrpc__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_log_in_log_in__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_transfer_view_transfer_view__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_transfer_view_transfer_view__ = __webpack_require__(150);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -549,8 +478,8 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/transfers/transfers.module#TransfersPageModule', name: 'TransfersPage', segment: 'transfers', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/transfer-view/transfer-view.module#TransferViewPageModule', name: 'TransferViewPage', segment: 'transfer-view', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/transfer-view/transfer-view.module#TransferViewPageModule', name: 'TransferViewPage', segment: 'transfer-view', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/transfers/transfers.module#TransfersPageModule', name: 'TransfersPage', segment: 'transfers', priority: 'low', defaultHistory: [] }
                     ]
                 })],
             // , NgIdleKeepaliveModule
@@ -581,58 +510,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 676:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(345);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(342);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_log_in_log_in__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_odoojsonrpc__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_utils__ = __webpack_require__(126);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-var MyApp = /** @class */ (function () {
-    function MyApp(platform, statusBar, splashScreen) {
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_log_in_log_in__["a" /* LogInPage */];
-        platform.ready().then(function () {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
-            statusBar.styleDefault();
-            splashScreen.hide();
-        });
-    }
-    MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\app\app.html"*/,
-            providers: [__WEBPACK_IMPORTED_MODULE_5__services_odoojsonrpc__["a" /* OdooJsonRpc */], __WEBPACK_IMPORTED_MODULE_6__services_utils__["a" /* Utils */]]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
-    ], MyApp);
-    return MyApp;
-}());
-
-//# sourceMappingURL=app.component.js.map
-
-/***/ }),
-
-/***/ 73:
+/***/ 54:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -642,7 +520,7 @@ var MyApp = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(372);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -837,8 +715,22 @@ var OdooJsonRpc = /** @class */ (function () {
     /**------------Fin del CRUD------------------- */
     /**----------------Metodos para el proyecto de Ciclo SNA ------------ */
     OdooJsonRpc.prototype.getTransfersIn = function () {
-        var dom = [['picking_type_id', '=', 1]];
+        var dom = [
+            ['picking_type_id', '=', 1]
+        ];
         return this.getRecord('stock.picking', dom, [], 0, 0, "");
+    };
+    OdooJsonRpc.prototype.getSingleTransferDetails = function (id) {
+        var dom = [
+            ['id', '=', id]
+        ];
+        return this.getRecord('stock.picking', dom, [], 0, 0, "");
+    };
+    OdooJsonRpc.prototype.getProdsFromTransfer = function (id) {
+        var dom = [
+            ['picking_id', '=', id]
+        ];
+        return this.getRecord('stock.move.line', dom, ['product_id', 'product_uom_qty', 'qty_done'], 0, 0, "");
     };
     /** --------------------Otros metodos utiles ------------------*/
     /**
@@ -898,6 +790,141 @@ var OdooJsonRpc = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=odoojsonrpc.js.map
+
+/***/ }),
+
+/***/ 676:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_log_in_log_in__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_odoojsonrpc__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_utils__ = __webpack_require__(82);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var MyApp = /** @class */ (function () {
+    function MyApp(platform, statusBar, splashScreen) {
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_log_in_log_in__["a" /* LogInPage */];
+        platform.ready().then(function () {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            statusBar.styleDefault();
+            splashScreen.hide();
+        });
+    }
+    MyApp = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\app\app.html"*/,
+            providers: [__WEBPACK_IMPORTED_MODULE_5__services_odoojsonrpc__["a" /* OdooJsonRpc */], __WEBPACK_IMPORTED_MODULE_6__services_utils__["a" /* Utils */]]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    ], MyApp);
+    return MyApp;
+}());
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 82:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Utils; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(37);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var Utils = /** @class */ (function () {
+    function Utils(alrtCtrl, loadingCtrl, toastCtrl, actionSheetCtrl) {
+        this.alrtCtrl = alrtCtrl;
+        this.loadingCtrl = loadingCtrl;
+        this.toastCtrl = toastCtrl;
+        this.actionSheetCtrl = actionSheetCtrl;
+    }
+    Utils.prototype.presentAlert = function (title, message, buttons, subtitle, enableBackdropDismiss, inputs) {
+        var alrt = this.alrtCtrl.create({
+            title: title,
+            subTitle: subtitle,
+            message: message,
+            buttons: buttons,
+            enableBackdropDismiss: enableBackdropDismiss,
+            inputs: inputs
+        });
+        alrt.present();
+    };
+    Utils.prototype.presentToast = function (message, duration, dissmissOnPageChange, position, showCloseButton, closeButtonText) {
+        var toast = this.toastCtrl.create({
+            message: message,
+            position: position,
+            dismissOnPageChange: dissmissOnPageChange,
+            duration: duration,
+            showCloseButton: showCloseButton,
+            closeButtonText: closeButtonText
+        });
+        toast.present();
+    };
+    Utils.prototype.presentLoading = function (content, duration, dissmissOnPageChange, enableBackDropDismiss, showBackDrop, spinner) {
+        this.loading = this.loadingCtrl.create({
+            content: content,
+            dismissOnPageChange: dissmissOnPageChange,
+            duration: duration,
+            enableBackdropDismiss: enableBackDropDismiss,
+            showBackdrop: showBackDrop,
+            spinner: spinner
+        });
+        this.loading.present();
+    };
+    Utils.prototype.dismissLoading = function () {
+        this.loading.dismiss();
+    };
+    Utils.prototype.presentActionSheet = function (buttons, title, subtitle, enableBackdropDismiss) {
+        var actionCtrl = this.actionSheetCtrl.create({
+            buttons: buttons,
+            subTitle: subtitle,
+            title: title,
+            enableBackdropDismiss: enableBackdropDismiss
+        });
+        actionCtrl.present();
+    };
+    Utils = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]])
+    ], Utils);
+    return Utils;
+}());
+
+//# sourceMappingURL=utils.js.map
 
 /***/ })
 

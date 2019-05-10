@@ -14,6 +14,7 @@ import {
 import {
   Injectable
 } from '@angular/core';
+import { jsonpFactory } from '@angular/http/src/http_module';
 
 @Injectable()
 export class OdooJsonRpc {
@@ -223,20 +224,26 @@ export class OdooJsonRpc {
   /**------------Fin del CRUD------------------- */
 
   /**----------------Metodos para el proyecto de Ciclo SNA ------------ */
-  
-  public getTransfersIn():Promise <any>{
-    let dom=[['picking_type_id','=',1]]
-    return this.getRecord('stock.picking',dom,[],0,0,"");
+
+  public getTransfersIn(): Promise < any > {
+    let dom = [
+      ['picking_type_id', '=', 1]
+    ]
+    return this.getRecord('stock.picking', dom, [], 0, 0, "");
   }
 
-  public getSingleTransferDetails(id):Promise <any>{
-    let dom=[['id','=',id]]
-    return this.getRecord('stock.picking',dom,[],0,0,"");
+  public getSingleTransferDetails(id): Promise < any > {
+    let dom = [
+      ['id', '=', id]
+    ]
+    return this.getRecord('stock.picking', dom, [], 0, 0, "");
   }
 
-  public getProdsFromTransfer(id):Promise <any>{
-    let dom=[['picking_id','=',id]]
-    return this.getRecord('stock.move',dom,[],0,0,"");
+  public getProdsFromTransfer(id): Promise < any > {
+    let dom = [
+      ['picking_id', '=', id]
+    ]
+    return this.getRecord('stock.move.line', dom, ['product_id','product_uom_qty','qty_done'], 0, 0, "");
   }
 
 

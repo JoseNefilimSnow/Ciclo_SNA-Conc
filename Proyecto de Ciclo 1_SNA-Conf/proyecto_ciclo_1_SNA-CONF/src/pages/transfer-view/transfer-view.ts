@@ -29,11 +29,10 @@ export class TransferViewPage {
 
   private transf_id: number;
   private state: string;
-  private prodsList: Array < {
+  private productList: Array < {
     id;
     name;
-    qty_or: number;
-    qty_del: number;
+    qty_del;
   } > = []
   private detailList: Array < {
     name: string;
@@ -48,26 +47,30 @@ export class TransferViewPage {
   }
 
   ionViewDidLoad() {
-    let name_prods: Array < string > ;
-    let id_prod;
-    let prod_name;
-    let qty_o;
-    let qty_del;
     this.odooRpc.getSingleTransferDetails(this.transf_id).then((res: any) => {
       this.detailList = [{
         name: JSON.parse(res._body)["result"].records[0].name,
         client: JSON.parse(res._body)["result"].records[0].partner_id[1],
         state: this.state
       }];
-      this.odooRpc.getProdsFromTransfer(this.transf_id).then((res: any) => {
-        
-      }).catch(err => {
-        alert(err)
-      });
     }).catch(err => {
       alert(err)
     });
-    
+    this.odooRpc.getProdsFromTransfer(this.transf_id).then((res: any) => {
+      for (let i = 0; i < JSON.parse(res._body)["result"].records.length; i++) {
+        console.log(JSON.parse(res._body)["result"].records[i].ordered_qty)
+        console.log(JSON.parse(res._body)["result"].records[i].qty_done)
+        let aux = JSON.parse(res._body)["result"].records[i].ordered_qty - JSON.parse(res._body)["result"].records[i].qty_done;
+        this.productList[i] = {
+          id: JSON.parse(res._body)["result"].records[i].product_id[0],
+          name: JSON.parse(res._body)["result"].records[i].product_id[1],
+          qty_del: aux
+        };
+      }
+    }).catch(err => {
+      alert(err)
+    });
+
   }
 
 }
