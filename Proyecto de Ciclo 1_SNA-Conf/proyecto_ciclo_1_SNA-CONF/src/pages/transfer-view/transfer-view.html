@@ -26,12 +26,29 @@
         <ion-item>
           <h2>Nombre del Producto:</h2>
           <h2>{{prods.name}}</h2>
-          <p>Cantidad para entregar:</p>
-          <p>{{prods.qty_del}}</p>
-          <p>Cantidad pedida</p>
-          <p>{{prods.qty_order}}</p>
+          <div [hidden]="check()">
+            <p>Cantidad para entregar:</p>
+            <ion-row>
+              <ion-col>
+                <ion-icon name="add-circle" (click)="increment(i)" class="larger"></ion-icon>
+              </ion-col>
+              <ion-col>
+                <p class="larger">{{prods.qty_del}}</p>
+              </ion-col>
+              <ion-col>
+                <ion-icon name="remove-circle" (click)="decrement(i)" class="larger"></ion-icon>
+              </ion-col>
+            </ion-row>
+            <p>Cantidad pedida</p>
+            <p class="larger">{{prods.qty_order}}</p>
+          </div>
         </ion-item>
       </ion-list>
     </ion-item>
   </ion-list>
+  <div [hidden]="check()">
+    <button ion-button block round outline color="secondary">
+      Enviar y generar factura
+    </button>
+  </div>
 </ion-content>

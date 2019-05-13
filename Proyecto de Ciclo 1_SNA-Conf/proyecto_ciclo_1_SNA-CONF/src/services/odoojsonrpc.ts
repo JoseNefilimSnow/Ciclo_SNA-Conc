@@ -227,7 +227,7 @@ export class OdooJsonRpc {
 
   public getTransfersIn(): Promise < any > {
     let dom = [
-      ['picking_type_id', '=', 1]
+      ['picking_type_id', '=', 1 , '&' , 'picking_type_id','=', 4]
     ]
     return this.getRecord('stock.picking', dom, [], 0, 0, "");
   }
@@ -243,7 +243,7 @@ export class OdooJsonRpc {
     let dom = [
       ['picking_id', '=', id]
     ]
-    return this.getRecord('stock.move.line', dom, ['product_id','ordered_qty','qty_done'], 0, 0, "");
+    return this.getRecord('stock.move.line', dom, ['id','product_id','ordered_qty','qty_done'], 0, 0, "");
   }
 
 

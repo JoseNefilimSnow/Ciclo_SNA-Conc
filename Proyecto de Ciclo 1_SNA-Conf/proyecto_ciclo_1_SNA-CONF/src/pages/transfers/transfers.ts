@@ -28,13 +28,13 @@ import {
 export class TransfersPage {
   private statusColor: string;
   private stateAux = "";
-  private hecho = false;
-  private cancelado = false;
-  private transfers: Array<{
+  private hecho = true;
+  private cancelado = true;
+  private transfers: Array < {
     id: number,
     name: string,
     state: string
-  }> = [];
+  } > = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private odooRpc: OdooJsonRpc) {
     this.display();
@@ -72,12 +72,12 @@ export class TransfersPage {
             break;
         }
 
-        // if (this.checkdone(this.stateAux)) {
-        this.transfers[i] = {
-          id: Number(JSON.parse(res._body)["result"].records[i].id),
-          name: String(JSON.parse(res._body)["result"].records[i].name),
-          state: this.stateAux
-          // }
+        if (this.checkdone(this.stateAux)) {
+          this.transfers[i] = {
+            id: Number(JSON.parse(res._body)["result"].records[i].id),
+            name: String(JSON.parse(res._body)["result"].records[i].name),
+            state: this.stateAux
+          }
         }
       }
     }).catch(err => {
@@ -87,24 +87,24 @@ export class TransfersPage {
 
   }
 
-  // private checkdone(state: string) {
-  //   if(state === "Hecho"){
-  //     return true;
-  //   }
+  private checkdone(state: string) {
+    let aux;
+    if (state === "Hecho") {
+      aux=true;
+    }
 
+    if(aux&&this.hecho){
+      return true;
+    }if(!aux){
+      return true;
+    }
+    return false;
 
-  // if (this.hecho && state == "Hecho") {
-  //   return true;
-  // } else if (state != "Hecho" || !this.hecho) {
-  //   return true;
-  // } else {
-  //   return false;
-  // }
-}
+  }
 
-//   private reload() {
-//   this.display();
-// }
+  private reload() {
+    this.display();
+  }
 
   // private changeStatusColor() {
   //   switch (this.stateAux) {
@@ -127,5 +127,4 @@ export class TransfersPage {
   //       this.statusColor = "danger";
   //       break;
   //   }
-  // }
-
+}
