@@ -37,7 +37,7 @@ var LogInPage = /** @class */ (function () {
         this.odooRpc = odooRpc;
         this.utils = utils;
         this.menu = menu;
-        this.odooUrl = "http://192.168.202.94:8069";
+        this.odooUrl = "http://172.18.8.25:8069";
         this.selectedDatabase = "ValperApp";
     }
     LogInPage.prototype.reinit = function () {
@@ -112,7 +112,7 @@ var LogInPage = /** @class */ (function () {
     };
     LogInPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["n" /* Component */])({
-            selector: 'page-log-in',template:/*ion-inline-start:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\log-in\log-in.html"*/'<!--\n  Generated template for the LogInPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Inicio de Sesión</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div text-center>\n    <img src="assets/imgs/valper.jpg" alt="No Image" />\n  </div>\n  <ion-card>\n    <div>\n      <form (ngSubmit)="login()" #registerForm="ngForm">\n        <div class="spacer" style="height: 10px;"></div>\n\n        <ion-item class="border-box">\n          <ion-input type="email" placeholder="Usuario(Email)" [(ngModel)]="email" name="email" required></ion-input>\n        </ion-item>\n        <div class="spacer" style="height: 10px;"></div>\n\n        <ion-item class="border-box">\n          <ion-input type="password" [(ngModel)]="password" name="pass" placeholder="Contraseña" required></ion-input>\n        </ion-item>\n        <div class="spacer" style="height: 10px;"></div>\n        <button ion-button block round outline type="submit">\n          Iniciar Sesión\n        </button>\n      </form>\n      <button ion-button block round outline color="danger" (click)="wallJumper()">\n        Dev: Inicio de Sesion\n      </button>\n    </div>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\log-in\log-in.html"*/,
+            selector: 'page-log-in',template:/*ion-inline-start:"C:\Users\adria\Documents\GitHub\Ciclo_SNA-Conc\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\log-in\log-in.html"*/'<!--\n\n  Generated template for the LogInPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-title>Inicio de Sesión</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <div text-center>\n\n    <img src="assets/imgs/valper.jpg" alt="No Image" />\n\n  </div>\n\n  <ion-card>\n\n    <div>\n\n      <form (ngSubmit)="login()" #registerForm="ngForm">\n\n        <div class="spacer" style="height: 10px;"></div>\n\n\n\n        <ion-item class="border-box">\n\n          <ion-input type="email" placeholder="Usuario(Email)" [(ngModel)]="email" name="email" required></ion-input>\n\n        </ion-item>\n\n        <div class="spacer" style="height: 10px;"></div>\n\n\n\n        <ion-item class="border-box">\n\n          <ion-input type="password" [(ngModel)]="password" name="pass" placeholder="Contraseña" required></ion-input>\n\n        </ion-item>\n\n        <div class="spacer" style="height: 10px;"></div>\n\n        <button ion-button block round outline type="submit">\n\n          Iniciar Sesión\n\n        </button>\n\n      </form>\n\n      <button ion-button block round outline color="danger" (click)="wallJumper()">\n\n        Dev: Inicio de Sesion\n\n      </button>\n\n    </div>\n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\adria\Documents\GitHub\Ciclo_SNA-Conc\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\log-in\log-in.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */],
@@ -180,13 +180,15 @@ var TransferViewPage = /** @class */ (function () {
         });
         this.odooRpc.getProdsFromTransfer(this.transf_id).then(function (res) {
             for (var i = 0; i < JSON.parse(res._body)["result"].records.length; i++) {
+                console.log(JSON.parse(res._body)["result"].records[i]);
                 console.log(JSON.parse(res._body)["result"].records[i].ordered_qty);
                 console.log(JSON.parse(res._body)["result"].records[i].qty_done);
                 var aux = JSON.parse(res._body)["result"].records[i].ordered_qty - JSON.parse(res._body)["result"].records[i].qty_done;
                 _this.productList[i] = {
                     id: JSON.parse(res._body)["result"].records[i].product_id[0],
                     name: JSON.parse(res._body)["result"].records[i].product_id[1],
-                    qty_del: aux
+                    qty_del: aux,
+                    qty_order: JSON.parse(res._body)["result"].records[i].ordered_qty
                 };
             }
         }).catch(function (err) {
@@ -195,7 +197,7 @@ var TransferViewPage = /** @class */ (function () {
     };
     TransferViewPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-transfer-view',template:/*ion-inline-start:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\transfer-view\transfer-view.html"*/'<!--\n  Generated template for the TransferViewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <ion-list *ngFor="let items of detailList">\n    <ion-item>\n      <h2>Nombre: {{items.name}}</h2>\n    </ion-item>\n    <ion-item>\n      <h2>Estado: {{items.state}}</h2>\n    </ion-item>\n    <ion-item>\n      <h2>Cliente: {{items.client}}</h2>\n    </ion-item>\n    <ion-item>\n      <ion-list *ngFor="let prods of productList; let i = index">\n        <ion-item>\n          <h2>Nombre del Producto:</h2>\n          <h2>{{prods.name}}</h2>\n        </ion-item>\n      </ion-list>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\transfer-view\transfer-view.html"*/,
+            selector: 'page-transfer-view',template:/*ion-inline-start:"C:\Users\adria\Documents\GitHub\Ciclo_SNA-Conc\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\transfer-view\transfer-view.html"*/'<!--\n\n  Generated template for the TransferViewPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n  <ion-list *ngFor="let items of detailList">\n\n    <ion-item>\n\n      <h2>Nombre: {{items.name}}</h2>\n\n    </ion-item>\n\n    <ion-item>\n\n      <h2>Estado: {{items.state}}</h2>\n\n    </ion-item>\n\n    <ion-item>\n\n      <h2>Cliente: {{items.client}}</h2>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-list *ngFor="let prods of productList; let i = index">\n\n        <ion-item>\n\n          <h2>Nombre del Producto:</h2>\n\n          <h2>{{prods.name}}</h2>\n\n          <p>Cantidad para entregar:</p>\n\n          <p>{{prods.qty_del}}</p>\n\n          <p>Cantidad pedida</p>\n\n          <p>{{prods.qty_order}}</p>\n\n        </ion-item>\n\n      </ion-list>\n\n    </ion-item>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\adria\Documents\GitHub\Ciclo_SNA-Conc\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\transfer-view\transfer-view.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__services_odoojsonrpc__["a" /* OdooJsonRpc */], __WEBPACK_IMPORTED_MODULE_3__services_utils__["a" /* Utils */]])
     ], TransferViewPage);
@@ -236,11 +238,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var TransfersPage = /** @class */ (function () {
     function TransfersPage(navCtrl, navParams, odooRpc) {
-        var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.odooRpc = odooRpc;
         this.stateAux = "";
+        this.hecho = false;
+        this.cancelado = false;
+        this.transfers = [];
+        this.display();
+    }
+    TransfersPage.prototype.view = function (index) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__transfer_view_transfer_view__["a" /* TransferViewPage */], {
+            id: this.transfers[index].id,
+            state: this.transfers[index].state
+        });
+    };
+    TransfersPage.prototype.display = function () {
+        var _this = this;
         this.transfers = [];
         this.odooRpc.getTransfersIn().then(function (res) {
             for (var i = 0; i < JSON.parse(res._body)["result"].records.length; i++) {
@@ -264,32 +278,53 @@ var TransfersPage = /** @class */ (function () {
                         _this.stateAux = "Cancelado";
                         break;
                 }
+                // if (this.checkdone(this.stateAux)) {
                 _this.transfers[i] = {
                     id: Number(JSON.parse(res._body)["result"].records[i].id),
                     name: String(JSON.parse(res._body)["result"].records[i].name),
                     state: _this.stateAux
+                    // }
                 };
             }
         }).catch(function (err) {
             alert(err);
         });
         // this.changeStatusColor();
-    }
-    TransfersPage.prototype.view = function (index) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__transfer_view_transfer_view__["a" /* TransferViewPage */], {
-            id: this.transfers[index].id,
-            state: this.stateAux
-        });
     };
     TransfersPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-transfers',template:/*ion-inline-start:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\transfers\transfers.html"*/'<!--\n  Generated template for the TransfersPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="secondary">\n    <ion-title>Pedidos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list *ngFor="let items of transfers;let i=index">\n    <ion-item (click)="view(i)">\n      <h2>Nombre: {{items.name}}</h2>\n      <h3>Estado: {{items.state}}</h3>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\transfers\transfers.html"*/,
+            selector: 'page-transfers',template:/*ion-inline-start:"C:\Users\adria\Documents\GitHub\Ciclo_SNA-Conc\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\transfers\transfers.html"*/'<!--\n\n  Generated template for the TransfersPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar color="secondary">\n\n    <ion-title>Pedidos</ion-title>\n\n    <ion-checkbox [(ngModel)]="hecho" (ionChange)="reload()">Mostrar Hechos</ion-checkbox>\n\n    <ion-checkbox [(ngModel)]="cancelado">Mostrar Cancelados</ion-checkbox>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-list *ngFor="let items of transfers;let i=index">\n\n    <ion-item (click)="view(i)">\n\n      <h2>Nombre: {{items.name}}</h2>\n\n      <h3>Estado: {{items.state}}</h3>\n\n    </ion-item>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\adria\Documents\GitHub\Ciclo_SNA-Conc\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\transfers\transfers.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__services_odoojsonrpc__["a" /* OdooJsonRpc */]])
     ], TransfersPage);
     return TransfersPage;
 }());
 
+//   private reload() {
+//   this.display();
+// }
+// private changeStatusColor() {
+//   switch (this.stateAux) {
+//     case 'Hecho':
+//       this.statusColor = "secondary";
+//       break;
+//     case 'Borrador':
+//       this.statusColor = "dark";
+//       break;
+//     case 'En Espera':
+//       this.statusColor = "yellow";
+//       break;
+//     case 'Disponible Parcialmente':
+//       this.statusColor = "purple";
+//       break;
+//     case 'Disponible':
+//       this.statusColor = "primary";
+//       break;
+//     case 'Cancelado':
+//       this.statusColor = "danger";
+//       break;
+//   }
+// }
 //# sourceMappingURL=transfers.js.map
 
 /***/ }),
@@ -401,7 +436,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar color="dark">\n    <ion-row>\n      <button ion-button icon-only (click)="logOut()" color="dark">\n        <ion-icon name="log-out"></ion-icon>\n      </button>\n      <ion-title align="center">\n        Página Principal\n      </ion-title>\n    </ion-row>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-row>\n    <button ion-button block large color="secondary" (click)="toServeTransfers()">\n      Ver Pedidos\n    </button>\n  </ion-row>\n  <ion-row>\n    <button ion-button block color="orange">\n      Enviar Pedidos (No implementado)\n    </button>\n  </ion-row>\n</ion-content>\n'/*ion-inline-end:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\adria\Documents\GitHub\Ciclo_SNA-Conc\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar color="dark">\n\n    <ion-row>\n\n      <button ion-button icon-only (click)="logOut()" color="dark">\n\n        <ion-icon name="log-out"></ion-icon>\n\n      </button>\n\n      <ion-title align="center">\n\n        Página Principal\n\n      </ion-title>\n\n    </ion-row>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-row>\n\n    <button ion-button block large color="secondary" (click)="toServeTransfers()">\n\n      Ver Pedidos\n\n    </button>\n\n  </ion-row>\n\n  <ion-row>\n\n    <button ion-button block color="orange">\n\n      Enviar Pedidos (No implementado)\n\n    </button>\n\n  </ion-row>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\adria\Documents\GitHub\Ciclo_SNA-Conc\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]])
     ], HomePage);
@@ -730,7 +765,7 @@ var OdooJsonRpc = /** @class */ (function () {
         var dom = [
             ['picking_id', '=', id]
         ];
-        return this.getRecord('stock.move.line', dom, ['product_id', 'product_uom_qty', 'qty_done'], 0, 0, "");
+        return this.getRecord('stock.move.line', dom, ['product_id', 'ordered_qty', 'qty_done'], 0, 0, "");
     };
     /** --------------------Otros metodos utiles ------------------*/
     /**
@@ -832,7 +867,7 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"C:\Proyectos_Aplicaciones\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\app\app.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\Users\adria\Documents\GitHub\Ciclo_SNA-Conc\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\adria\Documents\GitHub\Ciclo_SNA-Conc\Proyecto de Ciclo 1_SNA-Conf\proyecto_ciclo_1_SNA-CONF\src\app\app.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_5__services_odoojsonrpc__["a" /* OdooJsonRpc */], __WEBPACK_IMPORTED_MODULE_6__services_utils__["a" /* Utils */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])

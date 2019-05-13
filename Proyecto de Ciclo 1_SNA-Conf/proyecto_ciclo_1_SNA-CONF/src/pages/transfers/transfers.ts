@@ -28,16 +28,29 @@ import {
 export class TransfersPage {
   private statusColor: string;
   private stateAux = "";
-  private transfers: Array < {
+  private hecho = false;
+  private cancelado = false;
+  private transfers: Array<{
     id: number,
     name: string,
     state: string
-  } >= [];
+  }> = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private odooRpc: OdooJsonRpc) {
+    this.display();
+  }
+
+  private view(index) {
+    this.navCtrl.push(TransferViewPage, {
+      id: this.transfers[index].id,
+      state: this.transfers[index].state
+    })
+  }
+
+  private display() {
+    this.transfers = [];
     this.odooRpc.getTransfersIn().then((res: any) => {
       for (let i = 0; i < JSON.parse(res._body)["result"].records.length; i++) {
-
         switch (String(JSON.parse(res._body)["result"].records[i].state)) {
           case 'done':
             this.stateAux = "Hecho";
@@ -58,24 +71,40 @@ export class TransfersPage {
             this.stateAux = "Cancelado";
             break;
         }
+
+        // if (this.checkdone(this.stateAux)) {
         this.transfers[i] = {
           id: Number(JSON.parse(res._body)["result"].records[i].id),
           name: String(JSON.parse(res._body)["result"].records[i].name),
           state: this.stateAux
+          // }
         }
       }
     }).catch(err => {
       alert(err);
     })
     // this.changeStatusColor();
+
   }
 
-  private view(index) {
-    this.navCtrl.push(TransferViewPage, {
-      id: this.transfers[index].id,
-      state:this.stateAux
-    })
-  }
+  // private checkdone(state: string) {
+  //   if(state === "Hecho"){
+  //     return true;
+  //   }
+
+
+  // if (this.hecho && state == "Hecho") {
+  //   return true;
+  // } else if (state != "Hecho" || !this.hecho) {
+  //   return true;
+  // } else {
+  //   return false;
+  // }
+}
+
+//   private reload() {
+//   this.display();
+// }
 
   // private changeStatusColor() {
   //   switch (this.stateAux) {
@@ -99,4 +128,4 @@ export class TransfersPage {
   //       break;
   //   }
   // }
-}
+

@@ -29,16 +29,17 @@ export class TransferViewPage {
 
   private transf_id: number;
   private state: string;
-  private productList: Array < {
+  private productList: Array<{
     id;
     name;
     qty_del;
-  } > = []
-  private detailList: Array < {
+    qty_order;
+  }> = []
+  private detailList: Array<{
     name: string;
     client;
     state: string;
-  } > = []
+  }> = []
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private odooRpc: OdooJsonRpc, private utils: Utils) {
     this.transf_id = this.navParams.get("id");
@@ -56,15 +57,18 @@ export class TransferViewPage {
     }).catch(err => {
       alert(err)
     });
+
     this.odooRpc.getProdsFromTransfer(this.transf_id).then((res: any) => {
       for (let i = 0; i < JSON.parse(res._body)["result"].records.length; i++) {
-        console.log(JSON.parse(res._body)["result"].records[i].ordered_qty)
-        console.log(JSON.parse(res._body)["result"].records[i].qty_done)
+        console.log(JSON.parse(res._body)["result"].records[i]);
+        console.log(JSON.parse(res._body)["result"].records[i].ordered_qty);
+        console.log(JSON.parse(res._body)["result"].records[i].qty_done);
         let aux = JSON.parse(res._body)["result"].records[i].ordered_qty - JSON.parse(res._body)["result"].records[i].qty_done;
         this.productList[i] = {
           id: JSON.parse(res._body)["result"].records[i].product_id[0],
           name: JSON.parse(res._body)["result"].records[i].product_id[1],
-          qty_del: aux
+          qty_del: aux,
+          qty_order: JSON.parse(res._body)["result"].records[i].ordered_qty
         };
       }
     }).catch(err => {

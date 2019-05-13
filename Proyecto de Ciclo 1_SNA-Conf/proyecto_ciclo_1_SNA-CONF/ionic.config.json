@@ -1,8 +1,7 @@
 {
   "name": "proyecto_ciclo_1_SNA-CONF",
-  "app_id": "",
-  "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "type": "ionic-angular"
 }

@@ -7,6 +7,8 @@
 <ion-header>
   <ion-navbar color="secondary">
     <ion-title>Pedidos</ion-title>
+    <ion-checkbox [(ngModel)]="hecho" (ionChange)="reload()">Mostrar Hechos</ion-checkbox>
+    <ion-checkbox [(ngModel)]="cancelado">Mostrar Cancelados</ion-checkbox>
   </ion-navbar>
 </ion-header>
 

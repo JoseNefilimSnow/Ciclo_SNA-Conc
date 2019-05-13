@@ -243,7 +243,7 @@ export class OdooJsonRpc {
     let dom = [
       ['picking_id', '=', id]
     ]
-    return this.getRecord('stock.move.line', dom, ['product_id','product_uom_qty','qty_done'], 0, 0, "");
+    return this.getRecord('stock.move.line', dom, ['product_id','ordered_qty','qty_done'], 0, 0, "");
   }
 
 
