@@ -7,7 +7,7 @@ import {
   NavParams
 } from 'ionic-angular';
 import {
-  OdooJsonRpc
+  odooJsonRpc
 } from '../../services/odoojsonrpc';
 import {
   TransferViewPage
@@ -28,28 +28,25 @@ import {
 export class TransfersPage {
   private statusColor: string;
   private stateAux = "";
-  private hecho = true;
-  private cancelado = true;
-  private transfers: Array < {
+  private hechosycancelados = "Si";
+  private transfers: Array<{
     id: number,
     name: string,
     state: string
-  } > = [];
+  }> = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private odooRpc: OdooJsonRpc) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private odooRpc: odooJsonRpc) {
     this.display();
   }
 
-  private view(index) {
-    this.navCtrl.push(TransferViewPage, {
-      id: this.transfers[index].id,
-      state: this.transfers[index].state
-    })
-  }
-
   private display() {
-    this.transfers = [];
-    this.odooRpc.getTransfersIn().then((res: any) => {
+    let cont = 0;
+    let transf: Array<{
+      id: number,
+      name: string,
+      state: string
+    }> = [];
+    this.odooRpc.obtenerPedidosPickDeSalida().then((res: any) => {
       for (let i = 0; i < JSON.parse(res._body)["result"].records.length; i++) {
         switch (String(JSON.parse(res._body)["result"].records[i].state)) {
           case 'done':
@@ -71,60 +68,39 @@ export class TransfersPage {
             this.stateAux = "Cancelado";
             break;
         }
-
-        if (this.checkdone(this.stateAux)) {
-          this.transfers[i] = {
-            id: Number(JSON.parse(res._body)["result"].records[i].id),
-            name: String(JSON.parse(res._body)["result"].records[i].name),
-            state: this.stateAux
-          }
+        if (this.stateAux === "Hecho" || this.stateAux === "Cancelado") {
+          if (this.hechosycancelados === "Si") {
+            transf[cont] = {
+              id: Number(JSON.parse(res._body)["result"].records[i].id),
+              name: String(JSON.parse(res._body)["result"].records[i].name),
+              state: this.stateAux
+            }
+            cont++;
+          } else if (this.hechosycancelados === "No") { }
+        } else {
+        transf[cont] = {
+          id: Number(JSON.parse(res._body)["result"].records[i].id),
+          name: String(JSON.parse(res._body)["result"].records[i].name),
+          state: this.stateAux
+        }
+        cont++;
         }
       }
+      this.transfers=transf;
     }).catch(err => {
       alert(err);
     })
-    // this.changeStatusColor();
 
   }
 
-  private checkdone(state: string) {
-    let aux;
-    if (state === "Hecho") {
-      aux=true;
-    }
-
-    if(aux&&this.hecho){
-      return true;
-    }if(!aux){
-      return true;
-    }
-    return false;
-
+  private view(index) {
+    this.navCtrl.push(TransferViewPage, {
+      id: this.transfers[index].id,
+      state: this.transfers[index].state
+    })
   }
-
-  private reload() {
+  valueOfOption(){
+    console.log(this.hechosycancelados);
     this.display();
   }
-
-  // private changeStatusColor() {
-  //   switch (this.stateAux) {
-  //     case 'Hecho':
-  //       this.statusColor = "secondary";
-  //       break;
-  //     case 'Borrador':
-  //       this.statusColor = "dark";
-  //       break;
-  //     case 'En Espera':
-  //       this.statusColor = "yellow";
-  //       break;
-  //     case 'Disponible Parcialmente':
-  //       this.statusColor = "purple";
-  //       break;
-  //     case 'Disponible':
-  //       this.statusColor = "primary";
-  //       break;
-  //     case 'Cancelado':
-  //       this.statusColor = "danger";
-  //       break;
-  //   }
 }

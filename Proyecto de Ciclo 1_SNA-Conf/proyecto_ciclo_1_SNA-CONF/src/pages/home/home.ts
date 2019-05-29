@@ -10,6 +10,7 @@ import {
 import {
   LogInPage
 } from '../log-in/log-in';
+import { PackingPage } from '../packing/packing';
 
 @Component({
   selector: 'page-home',
@@ -55,9 +56,12 @@ export class HomePage {
   private toServeTransfers() {
     this.navCtrl.push(TransfersPage)
   }
-
+  private toPackTransfers(){
+    this.navCtrl.push(PackingPage)
+  }
   private logOut() {
     localStorage.removeItem("token");
     this.navCtrl.setRoot(LogInPage);
   }
+  
 }

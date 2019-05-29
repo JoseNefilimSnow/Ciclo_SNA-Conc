@@ -4,11 +4,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LogInPage } from '../pages/log-in/log-in';
-import { OdooJsonRpc } from "../services/odoojsonrpc";
+import { odooJsonRpc } from "../services/odoojsonrpc";
 import { Utils } from "../services/utils";
 @Component({
   templateUrl: 'app.html',
-  providers: [OdooJsonRpc, Utils]
+  providers: [odooJsonRpc, Utils]
 })
 export class MyApp {
   rootPage:any = LogInPage;

@@ -1,5 +1,5 @@
 import {
-  OdooJsonRpc
+  odooJsonRpc
 } from "../../services/odoojsonrpc";
 import {
   Component
@@ -26,35 +26,25 @@ import { HomePage } from "../home/home";
   templateUrl: 'log-in.html',
 })
 export class LogInPage {
-  public odooUrl = "http://172.18.8.25:8069";
-  private selectedDatabase = "ValperAppCiclo1";
+  public odooUrl = "http://172.18.8.34:8069";
+  private selectedDatabase = "ValperApp";
   private email; 
   private password;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    private odooRpc: OdooJsonRpc,
+    private odooRpc: odooJsonRpc,
     private utils: Utils,
     private menu: MenuController) {
   }
 
-  public reinit() {
-    this.odooRpc.init({
-      odoo_server: this.odooUrl,
-      http_auth: "username:password"
-    });
-  }
   private login() {
-    this.reinit();
     this.utils.presentLoading("Iniciando Sesión", 0, true);
     this.odooRpc
-      .login(this.selectedDatabase, this.email, this.password)
+      .inicioDeSesion(this.email, this.password)
       .then((res: any) => {
         console.log(JSON.parse(res._body));
         if (Number(JSON.parse(res._body)["result"].partner_id)) {
-          let logiData: any = JSON.parse(res._body)["result"];
-          logiData.password = this.password;
-          localStorage.setItem("token", JSON.stringify(logiData));
           this.utils.dismissLoading();
           console.log("Todo guay: "+ JSON.parse(res._body));
           this.navCtrl.setRoot(HomePage);
@@ -85,18 +75,15 @@ export class LogInPage {
   }
   
   private wallJumper() {
-    this.reinit();
     this.utils.presentLoading("Iniciando Sesión", 0, true);
     this.odooRpc
-      .login(this.selectedDatabase, "admin@prueba.com", "prueba")
+      .inicioDeSesion("admin@prueba.com", "prueba")
       .then((res: any) => {
-        console.log(JSON.parse(res._body));
         if (Number(JSON.parse(res._body)["result"].partner_id)) {
           let logiData: any = JSON.parse(res._body)["result"];
           logiData.password = this.password;
           localStorage.setItem("token", JSON.stringify(logiData));
           this.utils.dismissLoading();
-          console.log("Todo guay: "+ JSON.parse(res._body));
           this.navCtrl.setRoot(HomePage);
         } else {
           this.utils.dismissLoading();

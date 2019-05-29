@@ -34,12 +34,13 @@ import {
   TransfersPage
 } from '../pages/transfers/transfers';
 import {
-  OdooJsonRpc
+  odooJsonRpc
 } from "../services/odoojsonrpc";
 import {
   LogInPage
 } from '../pages/log-in/log-in';
 import { TransferViewPage } from '../pages/transfer-view/transfer-view';
+import { PackingPage } from '../pages/packing/packing';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { TransferViewPage } from '../pages/transfer-view/transfer-view';
     HomePage,
     LogInPage,
     TransfersPage,
-    TransferViewPage
+    TransferViewPage,
+    PackingPage
   ],
   imports: [BrowserModule, HttpModule, IonicModule.forRoot(MyApp)],
   // , NgIdleKeepaliveModule
@@ -58,12 +60,13 @@ import { TransferViewPage } from '../pages/transfer-view/transfer-view';
     HomePage,
     LogInPage,
     TransfersPage,
-    TransferViewPage
+    TransferViewPage,
+    PackingPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    OdooJsonRpc,
+    odooJsonRpc,
     {
       provide: ErrorHandler,
       useClass: IonicErrorHandler

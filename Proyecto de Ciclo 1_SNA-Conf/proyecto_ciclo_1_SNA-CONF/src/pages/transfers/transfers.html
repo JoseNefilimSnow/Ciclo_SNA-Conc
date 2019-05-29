@@ -12,12 +12,11 @@
 
 <ion-content padding>
   <ion-item>
-    <ion-checkbox [(ngModel)]="hecho" (ionChange)="reload()"></ion-checkbox>
-    <ion-label>Mostrar Hechos</ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-checkbox [(ngModel)]="cancelado"></ion-checkbox>
-    <ion-label>Mostrar Cancelados</ion-label>
+    <ion-label>Mostrar Hechos y Cancelados:</ion-label>
+    <ion-select [(ngModel)]="hechosycancelados" (ionChange)="valueOfOption()">
+      <ion-option value="Si">Si</ion-option>
+      <ion-option value="No">No</ion-option>
+    </ion-select>
   </ion-item>
   <ion-list *ngFor="let items of transfers;let i=index">
     <ion-item (click)="view(i)">
