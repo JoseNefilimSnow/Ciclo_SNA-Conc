@@ -79,7 +79,7 @@ Si y no, para realizar una Recepción no es necesario puesto que el empaquetamie
 
 ## Mejoras Propuestas:
 
-  - Implementación de recogida por productos y posterior a la hora de realizar un envio.
+  - Implementación de recogida por productos. En este momento se realiza por posicion de los productos en las plantas.
   - Mostrar ubicaciones ordenadas por cercanía para evitar rutas innecesarias a la hora de la recepción.
   - Mejora de la asignación de productos al tipo de empaquetado con posibilidad a borrar y editar el mismo.
   - Mejora a la hora de la navegación entre listas de pedidos en el envio.
