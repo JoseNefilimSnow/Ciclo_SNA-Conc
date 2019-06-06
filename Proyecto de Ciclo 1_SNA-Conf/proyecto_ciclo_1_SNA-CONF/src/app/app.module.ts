@@ -31,25 +31,21 @@ import {
   HomePage
 } from '../pages/home/home';
 import {
-  TransfersPage
-} from '../pages/transfers/transfers';
-import {
   odooJsonRpc
 } from "../services/odoojsonrpc";
 import {
   LogInPage
 } from '../pages/log-in/log-in';
-import { TransferViewPage } from '../pages/transfer-view/transfer-view';
-import { PackingPage } from '../pages/packing/packing';
+import { TransfertemplatePage } from '../pages/transfertemplate/transfertemplate';
+import { DetailledviewPage } from '../pages/detailledview/detailledview';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LogInPage,
-    TransfersPage,
-    TransferViewPage,
-    PackingPage
+    TransfertemplatePage,
+    DetailledviewPage
   ],
   imports: [BrowserModule, HttpModule, IonicModule.forRoot(MyApp)],
   // , NgIdleKeepaliveModule
@@ -59,9 +55,8 @@ import { PackingPage } from '../pages/packing/packing';
     MyApp,
     HomePage,
     LogInPage,
-    TransfersPage,
-    TransferViewPage,
-    PackingPage
+    TransfertemplatePage,
+    DetailledviewPage
   ],
   providers: [
     StatusBar,

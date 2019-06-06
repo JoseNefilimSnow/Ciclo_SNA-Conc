@@ -1,14 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 679:
+/***/ 677:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TransferViewPageModule", function() { return TransferViewPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DetailledviewPageModule", function() { return DetailledviewPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__transfer_view__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__detailledview__ = __webpack_require__(149);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var TransferViewPageModule = /** @class */ (function () {
-    function TransferViewPageModule() {
+var DetailledviewPageModule = /** @class */ (function () {
+    function DetailledviewPageModule() {
     }
-    TransferViewPageModule = __decorate([
+    DetailledviewPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__transfer_view__["a" /* TransferViewPage */],
+                __WEBPACK_IMPORTED_MODULE_2__detailledview__["a" /* DetailledviewPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__transfer_view__["a" /* TransferViewPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__detailledview__["a" /* DetailledviewPage */]),
             ],
         })
-    ], TransferViewPageModule);
-    return TransferViewPageModule;
+    ], DetailledviewPageModule);
+    return DetailledviewPageModule;
 }());
 
-//# sourceMappingURL=transfer-view.module.js.map
+//# sourceMappingURL=detailledview.module.js.map
 
 /***/ })
 

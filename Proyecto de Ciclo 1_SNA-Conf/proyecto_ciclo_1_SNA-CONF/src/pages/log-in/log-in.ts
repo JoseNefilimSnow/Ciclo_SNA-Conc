@@ -26,8 +26,6 @@ import { HomePage } from "../home/home";
   templateUrl: 'log-in.html',
 })
 export class LogInPage {
-  public odooUrl = "http://172.18.8.34:8069";
-  private selectedDatabase = "ValperApp";
   private email; 
   private password;
 
@@ -98,7 +96,7 @@ export class LogInPage {
 
       })
       .catch(err => {
-        console.log("ups: "+JSON.parse(err._body))
+        console.log("ups: "+ err)
         this.utils.dismissLoading();
         this.utils.presentAlert(
           "Error",

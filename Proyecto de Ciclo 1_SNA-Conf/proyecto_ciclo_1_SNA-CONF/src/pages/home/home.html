@@ -13,17 +13,17 @@
 
 <ion-content padding>
   <ion-row>
-    <button ion-button block large color="orange">
-      Ver Pedidos Entrada (No implementado)
+    <button ion-button block large color="orange" (click)="ver_pedidos(1)">
+      Ver Movimientos de Entrada 
     </button>
   </ion-row>
   <ion-row>
-    <button ion-button block large color="secondary" (click)="toServeTransfers()">
-      Ver Pedidos Salida
+    <button ion-button block large color="secondary" (click)="ver_pedidos(3)">
+      Ver Movimientos de Salida
     </button>
   </ion-row>
   <ion-row>
-    <button ion-button block large color="primary" (click)="toPackTransfers()">
+    <button ion-button block large color="primary" (click)="ver_pedidos(4)">
       Empaquetar
     </button>
   </ion-row>
