@@ -77,6 +77,9 @@ Si, el factor determinante es el espacio que ocupan. En vez de tener una lista c
 - ### Entonces ¿Verían necesario una asignacion de volumenes por producto // ubicación?
 Si y no, para realizar una Recepción no es necesario puesto que el empaquetamiento de los productos varía pero a la hora de realizar un Envio puede ser útil para decidir como transportarlo.
 
+## Problemas Actuales:
+  - Problemas de conexión WiFi, no es estable en todo el Almacén.
+  
 ## Mejoras Propuestas:
 
   - Implementación de recogida por productos. 
