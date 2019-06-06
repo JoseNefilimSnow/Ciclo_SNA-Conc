@@ -80,7 +80,7 @@ Si y no, para realizar una Recepción no es necesario puesto que el empaquetamie
 ## Mejoras Propuestas:
 
   - Implementación de recogida por productos. 
-  - ### Mostrar ubicaciones ordenadas por cercanía para evitar rutas innecesarias a la hora de la recepción.
+  - #### Mostrar ubicaciones ordenadas por cercanía para evitar rutas innecesarias a la hora de la recepción.
   - Mejora de la asignación de productos al tipo de empaquetado con posibilidad a borrar y editar el mismo.
   - Mejora a la hora de la navegación entre listas de pedidos en el envio.
   - Eliminación completa de la ubicación 'Articulos sin ubicación' con la creación de una sugerencia de ubicación y creación de su código.
