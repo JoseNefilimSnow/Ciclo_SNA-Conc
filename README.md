@@ -1,11 +1,11 @@
-![clipboard](https://i.imgur.com/bII7upb.png)
+
 # CICLO DE INVENTARIO:
 ### Análisis de funcionamiento actual e implementación en Odoo.
 
 
 ## Descripción Breve:
 
-Se nos asigna el análisis del funcionamiento actual del almacén principal de Toyota Canarias con vistas a adaptar los procedimientos actuales que los operarios realizan (entrada de productos, salida de productos y control de stock) sobre una nueva aplicación que se conecte a los servicios y módulos que Odoo ofrece.
+Se nos asigna el análisis del funcionamiento actual de un almacén principal con vistas a adaptar los procedimientos actuales que los operarios realizan (entrada de productos, salida de productos y control de stock) sobre una nueva aplicación que se conecte a los servicios y módulos que Odoo ofrece.
 
 
 ## Organización del almacén:
